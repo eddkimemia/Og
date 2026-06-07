@@ -10,7 +10,11 @@
 <body>
     <div class="container">
         <header>
+
+            
+
             <h1 class="issue-title">edwin@web:~$</h1>
+
             <div class="issue-subtitle">
                 <span>Issue #004</span>
                 <span>Edwin Kimemia • Software Engineer</span>
@@ -20,6 +24,10 @@
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -29,10 +37,10 @@
 
         <main class="comic-grid">
             <!-- HERO -->
-            <section class="panel hero">
+            <section class="panel hero halftone">
                 <h2 class="panel-title">$ WHOAMI</h2>
                 <div class="terminal">
-                    <div><span class="prompt">edwin@portfolio:~$</span> whoami</div>
+                    <div><span class="prompt">edwin@web:~$</span> whoami</div>
                     <br>
                     <div>Full-Stack Software Engineer</div>
                     <div>3 Years Experience</div>
@@ -46,66 +54,77 @@
                 </div>
             </section>
 
-            <!-- SKILLS -->
-            <section class="panel">
-                <h2 class="panel-title">SKILL ARSENAL</h2>
-                <ul class="skills-list">
-                    <li>✔ React & Tailwind CSS</li>
-                    <li>✔ Node.js & Express</li>
-                    <li>✔ PostgreSQL & MongoDB</li>
-                    <li>✔ Daraja API (M-Pesa)</li>
-                    <li>✔ Africa's Talking API</li>
-                    <li>✔ AWS & Cloudinary</li>
-                    <li>✔ Git & CI/CD</li>
-                </ul>
-            </section>
+            <!-- SKILLS VERBOSE -->
+            <section class="panel halftone">
+                <h2 class="panel-title">$ skills --detailed --verbose</h2>
+                <div class="terminal" style="font-size: 0.85rem; border: none; background: transparent; padding: 0;">
+                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> FRONTEND:</div>
+                    <div style="margin-bottom: 10px; padding-left: 10px;">
+                        - React (2.5 years) – Built 6 production apps, contributed to 2 open-source component libraries<br>
+                        - TypeScript (2 years) – Strict mode always on, average 95% type coverage<br>
+                        - HTML/CSS (3 years) – Hand-coded layouts, no Tailwind for this portfolio
+                    </div>
 
-            <!-- PROJECTS SUMMARY -->
-            <section class="panel">
-                <h2 class="panel-title">LATEST: INVOICEKENYA</h2>
-                <p>SaaS invoicing for Kenyan freelancers. M-Pesa payment links, Daraja STK Push callbacks, and PDF generation.</p>
-                <div class="code-box">
-                    // M-Pesa STK Push Callback<br>
-                    router.post('/callback', (req, res) => {<br>
-                    &nbsp;&nbsp;const { ResultCode } = req.body.Body.stkCallback;<br>
-                    &nbsp;&nbsp;if (ResultCode === 0) updatePaymentStatus();<br>
-                    });
-                </div>
-                <div class="project-tags">
-                    <span class="project-tag">React</span>
-                    <span class="project-tag">Node.js</span>
-                    <span class="project-tag">Daraja API</span>
-                </div>
-            </section>
+                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> BACKEND:</div>
+                    <div style="margin-bottom: 10px; padding-left: 10px;">
+                        - Node.js (3 years) – Built REST APIs, WebSocket servers, background job processors<br>
+                        - Python (1.5 years) – Data processing scripts, FastAPI prototypes
+                    </div>
 
-            <section class="panel">
-                <h2 class="panel-title">LATEST: SHIFTBOARD</h2>
-                <p>Staff scheduling for hospitality. Drag-and-drop rotas with WhatsApp notifications via Africa's Talking API.</p>
-                <div class="code-box">
-                    await AT.sms.send({<br>
-                    &nbsp;&nbsp;to: staff.phone,<br>
-                    &nbsp;&nbsp;message: `Your shift: ${shift.date}`<br>
-                    });
-                </div>
-                <div class="project-tags">
-                    <span class="project-tag">Node.js</span>
-                    <span class="project-tag">PostgreSQL</span>
-                    <span class="project-tag">WhatsApp API</span>
+                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> DATABASES:</div>
+                    <div style="margin-bottom: 10px; padding-left: 10px;">
+                        - PostgreSQL (2 years) – Complex joins, window functions, query optimization<br>
+                        - MongoDB (1 year) – Aggregation pipelines, indexing strategies
+                    </div>
+
+                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> TOOLS:</div>
+                    <div style="padding-left: 10px;">
+                        - Git (3 years) – Feature branch workflow, interactive rebase<br>
+                        - Docker (1.5 years) – Multi-stage builds, docker-compose<br>
+                        - CI/CD – GitHub Actions, automated testing
+                    </div>
                 </div>
             </section>
 
+            <!-- ACTIVITY LOG -->
             <section class="panel">
-                <h2 class="panel-title">LATEST: FORMCRAFT</h2>
-                <p>No-code form builder to replace Typeform. Supports conditional logic, file uploads, and webhooks.</p>
-                <div class="code-box">
-                    &lt;script src="formcraft.io/embed.js"&gt;<br>
-                    &lt;/script&gt;<br>
-                    &lt;div data-form-id="xyz-123"&gt;&lt;/div&gt;
+                <h2 class="panel-title">RECENT ACTIVITY</h2>
+                <div id="activity-log" class="activity-log">
+                    <!-- Loaded via JS -->
                 </div>
-                <div class="project-tags">
-                    <span class="project-tag">MongoDB</span>
-                    <span class="project-tag">AWS S3</span>
-                    <span class="project-tag">Vanilla JS</span>
+                <div class="caption" style="font-size: 0.8rem;">Live feed from Edwin's development environment.</div>
+            </section>
+
+            <!-- LATEST BLOG -->
+            <section class="panel halftone">
+                <h2 class="panel-title">LATEST FROM THE BLOG</h2>
+                <div class="blog-meta">ISSUE #01 • JUNE 2025</div>
+                <h3>How I Built This Comic Terminal Portfolio</h3>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Why I chose the comic + terminal hybrid (rejecting generic portfolios) and the technical challenges involved...</p>
+                <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                    <a href="blog-1.html" class="btn">READ MORE →</a>
+                </div>
+            </section>
+
+            <!-- CODE VAULT PREVIEW -->
+            <section class="panel">
+                <h2 class="panel-title">THE CODE VAULT</h2>
+                <div class="vault-card" style="border-width: 2px;">
+                    <div class="vault-card-header" style="font-size: 0.7rem; padding: 5px;">Snippet #01: Debounce</div>
+                    <div class="vault-card-body" style="padding: 10px;">
+                        <div class="code-box" style="font-size: 0.7rem; padding: 5px;">
+function debounce&lt;T&gt;(fn: T, delay: number) {<br>
+&nbsp;&nbsp;let timeoutId: any = null;<br>
+&nbsp;&nbsp;return (...args: any[]) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (timeoutId) clearTimeout(timeoutId);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeoutId = setTimeout(() => fn(...args), delay);<br>
+&nbsp;&nbsp;};<br>
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                    <a href="vault.html" class="btn">VIEW ALL SNIPPETS →</a>
                 </div>
             </section>
 
@@ -117,7 +136,7 @@
                     Need a developer who understands the local tech ecosystem and can ship high-quality code fast? Let's connect.
                 </div>
                 <div class="buttons">
-                    <a href="projects.html" class="btn">VIEW ALL PROJECTS →</a>
+                    <a href="projects.html" class="btn">VIEW CASE STUDIES →</a>
                     <a href="contact.html" class="btn">GET IN TOUCH →</a>
                 </div>
             </section>
