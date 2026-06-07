@@ -30,52 +30,137 @@
         </header>
 
         <main class="comic-grid">
-            <!-- HERO -->
+            <!-- HERO: ORIGIN STORY -->
             <section class="panel hero halftone">
-                <h2 class="panel-title">$ WHOAMI</h2>
+                <h2 class="panel-title">$ cat origin_story.md</h2>
                 <div class="terminal">
-                    <div><span class="prompt">edwin@web:~$</span> whoami</div>
+                    <div><span class="prompt">edwin@web:~$</span> cat origin_story.md</div>
                     <br>
-                    <div>Full-Stack Software Engineer</div>
-                    <div>3 Years Experience</div>
-                    <div>Based in Nairobi, Kenya</div>
-                    <div>Specializing in African Market Tech</div>
+                    <div style="color: var(--blue); font-weight: bold;">> EDWIN KIMEMIA — SOFTWARE ENGINEER, 3 YEARS</div>
                     <br>
-                    <div>Mission: Building robust SaaS solutions that solve real local challenges. <span class="cursor"></span></div>
+                    <div>I started coding because I wanted to build tools that felt like magic but worked like clockwork. Three years later, I've shipped 12+ production applications, debugged my way through 3AM server crashes, and learned that the best code is the code you don't have to explain twice.</div>
+                    <br>
+                    <div style="font-weight: bold;">**What I actually care about:**</div>
+                    <div>- Clean, readable code that the next engineer won't curse</div>
+                    <div>- Performance wins that users can feel (not just benchmark numbers)</div>
+                    <div>- Teaching and learning – I'm as proud of the PR reviews I've given as the code I've written</div>
+                    <br>
+                    <div style="font-style: italic;">"I make things that work, work well, and make sense." <span class="cursor"></span></div>
                 </div>
                 <div class="caption">
-                    I build production-ready web applications with a focus on M-Pesa integrations, mobile-first design, and low-bandwidth user experiences.
+                    Currently open to: Full-stack or frontend roles where I can ship code and grow with a team that values quality over velocity.
                 </div>
             </section>
 
-            <!-- SKILLS VERBOSE -->
+            <!-- METRICS PANEL -->
+            <section class="panel">
+                <h2 class="panel-title">IMPACT METRICS</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">12</div>
+                        <div class="metric-label">Apps Shipped</div>
+                        <div class="metric-context">Production-ready</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">85+</div>
+                        <div class="metric-label">PR Reviews</div>
+                        <div class="metric-context">Avg 5 per sprint</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label">Latent Cut</div>
+                        <div class="metric-context">API Optimization</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">5k+</div>
+                        <div class="metric-label">Users Served</div>
+                        <div class="metric-context">Active Dashboards</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TECHNICAL DEEP-DIVE (SKILLS) -->
             <section class="panel halftone">
-                <h2 class="panel-title">$ skills --detailed --verbose</h2>
-                <div class="terminal" style="font-size: 0.85rem; border: none; background: transparent; padding: 0;">
-                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> FRONTEND:</div>
-                    <div style="margin-bottom: 10px; padding-left: 10px;">
-                        - React (2.5 years) – Built 6 production apps, contributed to 2 open-source component libraries<br>
-                        - TypeScript (2 years) – Strict mode always on, average 95% type coverage<br>
-                        - HTML/CSS (3 years) – Hand-coded layouts, no Tailwind for this portfolio
-                    </div>
+                <h2 class="panel-title">$ skills --verbose</h2>
+                <div class="terminal depth-skills">
+                    <details open>
+                        <summary>> FRONTEND [───] (3 years)</summary>
+                        <ul class="skills-verbose">
+                            <li>React: 6 production apps, 2 component libraries</li>
+                            <li>TypeScript: Strict mode, 95% type coverage</li>
+                            <li>HTML/CSS: Hand-coded layouts, no framework crutch</li>
+                            <li>State: Redux, Zustand, Context API</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>> BACKEND [───] (3 years)</summary>
+                        <ul class="skills-verbose">
+                            <li>Node.js: REST APIs, WebSockets, job queues</li>
+                            <li>Python: FastAPI prototypes, data scripts</li>
+                            <li>API Design: RESTful principles, OpenAPI specs</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>> DATABASES [───] (2 years)</summary>
+                        <ul class="skills-verbose">
+                            <li>PostgreSQL: Complex joins, window functions, optimization</li>
+                            <li>MongoDB: Aggregation pipelines, indexing</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>> DEVOPS & TOOLS [───] (2 years)</summary>
+                        <ul class="skills-verbose">
+                            <li>Docker: Multi-stage builds, compose for local dev</li>
+                            <li>Git: Feature branch workflow, interactive rebase</li>
+                            <li>CI/CD: GitHub Actions, automated testing</li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
 
-                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> BACKEND:</div>
-                    <div style="margin-bottom: 10px; padding-left: 10px;">
-                        - Node.js (3 years) – Built REST APIs, WebSocket servers, background job processors<br>
-                        - Python (1.5 years) – Data processing scripts, FastAPI prototypes
-                    </div>
+            <!-- FEATURED PROJECT SPOTLIGHT -->
+            <section class="panel spotlight">
+                <div class="action-word" style="font-size: 2rem;">FEATURED!</div>
+                <h2 class="panel-title">PROJECT SPOTLIGHT: INVOICEKENYA</h2>
+                <p><strong>The Mission:</strong> Automating billing for Kenyan freelancers with direct M-Pesa integration.</p>
+                <div class="code-box" style="font-size: 0.75rem;">
+// Reliable Payment Webhook Handler<br>
+async function handleMpesaCallback(payload) {<br>
+&nbsp;&nbsp;const { TransactionId, Amount, Status } = payload;<br>
+&nbsp;&nbsp;const invoice = await db.Invoices.find(TransactionId);<br>
+&nbsp;&nbsp;if (Status === 'Success') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;await invoice.markAsPaid(Amount);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;await notifyUser(invoice.userId, "Payment Received");<br>
+&nbsp;&nbsp;}<br>
+}
+                </div>
+                <div class="caption">
+                    <strong>Result:</strong> 99.8% payment reliability, 90% reduction in manual reconciliation.
+                </div>
+                <div class="buttons" style="justify-content: flex-start;">
+                    <a href="projects.html" class="btn">VIEW CASE STUDY →</a>
+                </div>
+            </section>
 
-                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> DATABASES:</div>
-                    <div style="margin-bottom: 10px; padding-left: 10px;">
-                        - PostgreSQL (2 years) – Complex joins, window functions, query optimization<br>
-                        - MongoDB (1 year) – Aggregation pipelines, indexing strategies
+            <!-- WEAPONS LOCKER (TECH STACK) -->
+            <section class="panel">
+                <h2 class="panel-title">TECH STACK: THE ARSENAL</h2>
+                <div class="badge-group">
+                    <div class="badge-header">FRONTEND ARSENAL</div>
+                    <div class="badge-grid">
+                        <div class="badge">React <small>3y</small></div>
+                        <div class="badge">TypeScript <small>2y</small></div>
+                        <div class="badge">Tailwind <small>1y</small></div>
+                        <div class="badge">Next.js <small>1y</small></div>
                     </div>
-
-                    <div style="color: var(--blue); font-weight: bold; margin-bottom: 5px;">> TOOLS:</div>
-                    <div style="padding-left: 10px;">
-                        - Git (3 years) – Feature branch workflow, interactive rebase<br>
-                        - Docker (1.5 years) – Multi-stage builds, docker-compose<br>
-                        - CI/CD – GitHub Actions, automated testing
+                </div>
+                <div class="badge-group" style="margin-top: 15px;">
+                    <div class="badge-header">BACKEND ARMORY</div>
+                    <div class="badge-grid">
+                        <div class="badge">Node.js <small>3y</small></div>
+                        <div class="badge">Express <small>3y</small></div>
+                        <div class="badge">Python <small>1.5y</small></div>
+                        <div class="badge">PostgreSQL <small>2y</small></div>
                     </div>
                 </div>
             </section>
@@ -89,24 +174,60 @@
                 <div class="caption" style="font-size: 0.8rem;">Live feed from Edwin's development environment.</div>
             </section>
 
+            <!-- ACTIVE LEARNING -->
+            <section class="panel">
+                <h2 class="panel-title">$ cat learning.log</h2>
+                <div class="terminal" style="font-size: 0.85rem;">
+                    <div>[ACTIVE LEARNING STREAK: 127 days]</div>
+                    <br>
+                    <div>Currently building: CLI tool for comic themes</div>
+                    <div>Currently reading: "The Pragmatic Programmer"</div>
+                    <div>Currently mastering: Rust ownership model</div>
+                </div>
+                <div class="contribution-bar" style="margin-top: 15px;">
+                    <div class="bar-label">Activity Distribution:</div>
+                    <div class="bar-container">
+                        <div class="bar-segment" style="width: 80%; background: var(--green);" title="Code"></div>
+                        <div class="bar-segment" style="width: 15%; background: var(--blue);" title="Review"></div>
+                        <div class="bar-segment" style="width: 5%; background: var(--yellow);" title="Docs"></div>
+                    </div>
+                    <div class="bar-legend">
+                        <span><i style="background: var(--green);"></i> Code</span>
+                        <span><i style="background: var(--blue);"></i> Review</span>
+                        <span><i style="background: var(--yellow);"></i> Docs</span>
+                    </div>
+                </div>
+            </section>
+
             <!-- LATEST BLOG -->
             <section class="panel halftone">
                 <h2 class="panel-title">LATEST FROM THE BLOG</h2>
-                <div class="blog-meta">ISSUE #01 • JUNE 2025</div>
-                <h3>How I Built This Comic Terminal Portfolio</h3>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Why I chose the comic + terminal hybrid (rejecting generic portfolios) and the technical challenges involved...</p>
-                <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
-                    <a href="blog-1.html" class="btn">READ MORE →</a>
+                <div class="blog-teasers">
+                    <div class="teaser">
+                        <div class="blog-meta">[2025-06-07] Issue #01</div>
+                        <h4>How I Built This Comic Portfolio</h4>
+                        <p>CSS halftones, terminal emulation, and breaking UI rules.</p>
+                        <a href="blog-1.html">Read Issue →</a>
+                    </div>
+                    <div class="teaser" style="margin-top: 15px; border-top: 2px dashed var(--black); padding-top: 15px;">
+                        <div class="blog-meta">[2025-05-20] Issue #02</div>
+                        <h4>Race Conditions in WebSocket Servers</h4>
+                        <p>Debugging a production bug with real code examples.</p>
+                        <a href="blog-2.html">Read Issue →</a>
+                    </div>
                 </div>
             </section>
 
 
-            <!-- CTA -->
+            <!-- CTA: UPGRADED CONTACT -->
             <section class="panel cta-panel">
                 <div class="action-word">KAPOW!</div>
-                <h2 class="panel-title">BUILDING SOMETHING BIG?</h2>
-                <div class="speech">
-                    Need a developer who understands the local tech ecosystem and can ship high-quality code fast? Let's connect.
+                <h2 class="panel-title">$ ./contact --reason "Let's talk"</h2>
+                <div class="terminal" style="text-align: left; margin-bottom: 20px;">
+                    <div>I'm actively looking for full-stack or frontend roles where I can:</div>
+                    <div style="padding-left: 15px;">• Ship code that matters</div>
+                    <div style="padding-left: 15px;">• Work with engineers who care about quality</div>
+                    <div style="padding-left: 15px;">• Learn from people smarter than me</div>
                 </div>
                 <div class="buttons">
                     <a href="projects.html" class="btn">VIEW CASE STUDIES →</a>

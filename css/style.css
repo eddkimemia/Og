@@ -284,6 +284,15 @@ body {
     border-bottom-color: white;
 }
 
+.cta-panel .terminal {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+.cta-panel .terminal div {
+    color: white;
+}
+
 .buttons {
     display: flex;
     flex-wrap: wrap;
@@ -338,6 +347,172 @@ body {
     font-size: 0.8rem;
     max-height: 200px;
     overflow-y: auto;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.metric-card {
+    background: white;
+    border: 3px solid var(--black);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.metric-card:hover {
+    transform: scale(1.05);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--red);
+    line-height: 1;
+}
+
+.metric-label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.metric-context {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: #666;
+}
+
+/* Tech Depth Skills */
+.depth-skills summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--blue);
+    padding: 5px 0;
+}
+
+.skills-verbose {
+    list-style: none;
+    padding-left: 15px;
+    margin-top: 5px;
+    font-size: 0.85rem;
+}
+
+.skills-verbose li::before {
+    content: "├─ ";
+}
+
+.skills-verbose li:last-child::before {
+    content: "└─ ";
+}
+
+/* Badge Grid */
+.badge-header {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    background: var(--black);
+    color: white;
+    display: inline-block;
+    padding: 2px 8px;
+}
+
+.badge-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    border: 3px solid var(--black);
+    padding: 5px 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    font-size: 0.85rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge small {
+    font-size: 0.65rem;
+    color: var(--blue);
+}
+
+/* Contribution Bar */
+.bar-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+}
+
+.bar-container {
+    height: 20px;
+    border: 3px solid var(--black);
+    display: flex;
+    overflow: hidden;
+}
+
+.bar-segment {
+    height: 100%;
+}
+
+.bar-legend {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+    font-size: 0.7rem;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.bar-legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bar-legend i {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border: 1px solid var(--black);
+}
+
+/* Spotlight Section */
+.spotlight {
+    grid-column: 1 / -1;
+    background: #fff;
+    border-color: var(--blue);
+}
+
+.spotlight .panel-title {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+}
+
+/* Blog Teasers */
+.blog-teasers h4 {
+    font-family: "JetBrains Mono", monospace;
+    margin: 5px 0;
+}
+
+.blog-teasers p {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.blog-teasers a {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: var(--blue);
 }
 
 .log-entry {
