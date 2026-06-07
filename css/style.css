@@ -258,12 +258,14 @@ body {
     padding: 18px;
     position: relative;
     margin-top: 15px;
+    color: var(--red);
 }
 
 .speech:after {
     content: "";
     position: absolute;
     left: 40px;
+    color: var(--red);
     bottom: -20px;
     width: 30px;
     height: 30px;
