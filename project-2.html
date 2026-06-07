@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFTBOARD | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">edwin@web:~$ </h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="panel hero halftone">
+                <div class="blog-meta">ISSUE #002 | PRODUCTIVITY</div>
+                <h2 class="panel-title">PROJECT: SHIFTBOARD</h2>
+                <div class="terminal" style="margin-top: 15px;">
+                    <div>$ cat tech_loadout.txt</div>
+                    <div style="font-family: monospace; white-space: pre; margin-top: 5px;">
+┌────────────┬────────────────────────────────────┐
+│ Frontend   │ React, Tailwind CSS                 │
+│ Backend    │ Node.js, Express                    │
+│ Database   │ PostgreSQL                          │
+│ Infra      │ Africa's Talking API, date-fns       │
+└────────────┴────────────────────────────────────┘</div>
+                </div>
+            </section>
+            <article class="panel" style="margin-top: 25px;">
+                <div class="blog-content">
+                    <h2>THE MISSION</h2>
+                    <p>Restaurant and hotel managers were wasting hours every week on paper-based staff rotas. ShiftBoard provides a digital drag-and-drop calendar for scheduling.</p>
+                    <h2>THE APPROACH</h2>
+                    <p>I developed a real-time calendar interface using CSS Grid and integrated Africa's Talking API to send automated WhatsApp notifications to staff whenever a shift was assigned or changed.</p>
+                    <h2>THE CODE</h2>
+                    <div class="code-box">const notifyStaff = async (staffMember, shift) => {<br>&nbsp;&nbsp;const message = `Habari ${staffMember.name}, you have a new shift on ${shift.date} at ${shift.time}`;<br>&nbsp;&nbsp;await AT.sms.send({<br>&nbsp;&nbsp;&nbsp;&nbsp;to: staffMember.phone,<br>&nbsp;&nbsp;&nbsp;&nbsp;message: message<br>&nbsp;&nbsp;});<br>};</div>
+                    <h2>THE OBSTACLES</h2>
+                    <p>Optimizing calendar performance for mobile browsers. I switched from a heavy third-party library to a custom-built lightweight grid solution, reducing initial load time by 60%.</p>
+                    <h2>THE RESULTS</h2>
+                    <p>Cut manager scheduling time by 5 hours per week and improved staff punctuality by 25% for our pilot clients in Nairobi.</p>
+                </div>
+                <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
+                    <a href="projects.html" class="btn">← BACK TO PROJECTS</a>
+                </div>
+            </article>
+        </main>
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

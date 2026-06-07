@@ -21,6 +21,8 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
                     <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
@@ -29,39 +31,98 @@
             </nav>
         </header>
 
-        <main class="comic-grid">
+        <main>
             <section class="panel hero halftone">
-                <div class="action-word">EXTRA! EXTRA!</div>
-                <h2 class="panel-title">TECHNICAL LOGS & BLOGS</h2>
-                <p>Real stories from the trenches of software engineering. No fluff, just code, debugging wars, and architectural deep-dives.</p>
+                <h2 class="panel-title">$ blog --stats</h2>
+                <div class="terminal" style="font-size: 0.9rem;">
+                    <div>Posts published: 6</div>
+                    <div>Total words written: 4,200</div>
+                    <div>Most popular: "How I Built This Comic Terminal Portfolio"</div>
+                    <div>Categories: JavaScript (3), TypeScript (2), Backend (1), CSS (1)</div>
+                </div>
             </section>
 
-            <article class="panel">
-                <div class="blog-meta">ISSUE #01 • JUNE 2025</div>
-                <h2 class="panel-title">How I Built This Comic Terminal Portfolio</h2>
-                <p>Why I rejected generic minimalism for a halftone-heavy, terminal-inspired aesthetic and the CSS challenges that came with it.</p>
-                <div class="buttons" style="justify-content: flex-start;">
-                    <a href="blog-1.html" class="btn">READ ISSUE →</a>
-                </div>
-            </article>
+            <div class="comic-grid" style="margin-top: 25px;">
+                <!-- Post 1 -->
+                <article class="panel">
+                    <div class="blog-meta">[2025-06-07] Issue #01 | 8 min read</div>
+                    <h2 class="panel-title">How I Built This Comic Portfolio</h2>
+                    <p>Why I rejected generic minimalism for halftones and terminal emulation. Plus the CSS tricks that made it work.</p>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: var(--purple); color: white;">CSS</span>
+                        <span class="project-tag" style="background: var(--blue); color: white;">FRONTEND</span>
+                    </div>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="blog-1.html" class="btn">READ ISSUE →</a>
+                    </div>
+                </article>
 
-            <article class="panel">
-                <div class="blog-meta">ISSUE #02 • MAY 2025</div>
-                <h2 class="panel-title">Debugging a Race Condition in Node.js</h2>
-                <p>A war story about WebSocket message drops under load and how an async queue saved the production environment.</p>
-                <div class="buttons" style="justify-content: flex-start;">
-                    <a href="blog-2.html" class="btn">READ ISSUE →</a>
-                </div>
-            </article>
+                <!-- Post 2 -->
+                <article class="panel">
+                    <div class="blog-meta">[2025-05-20] Issue #02 | 12 min read</div>
+                    <h2 class="panel-title">Debugging a Race Condition</h2>
+                    <p>Real production bug in a WebSocket server. Messages were dropping under load. Here's how I fixed it with a queue.</p>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: var(--green); color: white;">BACKEND</span>
+                        <span class="project-tag" style="background: var(--black); color: white;">JS</span>
+                    </div>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="blog-2.html" class="btn">READ ISSUE →</a>
+                    </div>
+                </article>
 
-            <article class="panel">
-                <div class="blog-meta">ISSUE #03 • APRIL 2025</div>
-                <h2 class="panel-title">Why I Switched from any to Unknown</h2>
-                <p>How TypeScript's strictest types caught bugs that 'any' was hiding, and why you should make the switch today.</p>
-                <div class="buttons" style="justify-content: flex-start;">
-                    <a href="blog-3.html" class="btn">READ ISSUE →</a>
-                </div>
-            </article>
+                <!-- Post 3 -->
+                <article class="panel">
+                    <div class="blog-meta">[2025-05-05] Issue #03 | 6 min read</div>
+                    <h2 class="panel-title">Switching from 'any' to 'unknown'</h2>
+                    <p>A bug that reached production because of 'any'. The refactor that caught 3 more hidden bugs in the codebase.</p>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: var(--blue); color: white;">TYPESCRIPT</span>
+                    </div>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="blog-3.html" class="btn">READ ISSUE →</a>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="panel">
+                    <div class="blog-meta">[2025-04-20] Issue #04 | 10 min read</div>
+                    <h2 class="panel-title">Optimizing PostgreSQL Queries</h2>
+                    <p>How I cut response time by 60% for a heavy dashboard. Indexing, window functions, and EXPLAIN ANALYZE.</p>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: var(--yellow); color: black;">DATABASE</span>
+                    </div>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="blog-4.html" class="btn">READ ISSUE →</a>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article class="panel">
+                    <div class="blog-meta">[2025-04-05] Issue #05 | 7 min read</div>
+                    <h2 class="panel-title">My First Open Source Contrib</h2>
+                    <p>The fear of submitting that first PR. The bug I introduced, and the maintainer who taught me Git rebase.</p>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: var(--red); color: white;">OPEN SOURCE</span>
+                    </div>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="blog-5.html" class="btn">READ ISSUE →</a>
+                    </div>
+                </article>
+
+                <!-- Post 6 -->
+                <article class="panel">
+                    <div class="blog-meta">[2025-03-20] Issue #06 | 9 min read</div>
+                    <h2 class="panel-title">5 Code Review Comments</h2>
+                    <p>Real feedback I've received that made me better. Why "this is clever" is sometimes a red flag.</p>
+                    <div class="project-tags">
+                        <span class="project-tag" style="background: var(--black); color: white;">SOFT SKILLS</span>
+                    </div>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="blog-6.html" class="btn">READ ISSUE →</a>
+                    </div>
+                </article>
+            </div>
         </main>
 
         <footer class="footer">

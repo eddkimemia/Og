@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why I Switched from any to Unknown | Edwin Kimemia</title>
+    <title>Switching from 'any' to 'unknown' | Edwin Kimemia</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,6 +21,8 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
                     <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
@@ -28,55 +30,37 @@
                 </ul>
             </nav>
         </header>
-
-        <main class="panel halftone">
-            <article class="blog-post">
-                <div class="blog-meta">PUBLISHED: APRIL 12, 2025 • 6 MIN READ</div>
-                <h1 class="panel-title" style="font-size: 2.5rem;">Why I Switched from any to Unknown in TypeScript (And You Should Too)</h1>
-
-                <div class="blog-content">
-                    <p>We've all been there. You're fighting with a complex API response, and the compiler keeps yelling at you. You reach for the "easy" button: `any`. But `any` isn't a solution; it's a debt contract you'll eventually have to pay back with interest.</p>
-
-                    <h2>The Problem with `any`</h2>
-                    <p>The `any` type essentially tells TypeScript to turn off type checking for that variable. It's a black hole in your type system where bugs hide.</p>
-
-                    <div class="code-box">
-// BEFORE: The dangerous way<br>
-function processData(data: any) {<br>
-&nbsp;&nbsp;console.log(data.user.name); // Runtime error if user is missing!<br>
-}
-                    </div>
-
-                    <h2>The Type-Safe Refactor</h2>
-                    <p>The `unknown` type is the type-safe sibling of `any`. It says "this could be anything, so you must prove what it is before you use it." This forces you to write type guards, which handle edge cases at the boundaries of your application.</p>
-
-                    <div class="code-box">
-// AFTER: The safe way<br>
-interface User { name: string; }<br>
-<br>
-function isUser(obj: unknown): obj is User {<br>
-&nbsp;&nbsp;return typeof obj === 'object' && obj !== null && 'name' in obj;<br>
-}<br>
-<br>
-function processData(data: unknown) {<br>
-&nbsp;&nbsp;if (isUser(data)) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;console.log(data.name); // Safe!<br>
-&nbsp;&nbsp;} else {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Invalid data structure");<br>
-&nbsp;&nbsp;}<br>
-}
-                    </div>
-
-                    <h2>Results</h2>
-                    <p>Switching to `unknown` for all external data (API calls, localStorage, user input) caught 3 potential production bugs in our very next sprint. It turns "undefined is not a function" into a compile-time or handled-runtime error.</p>
+        <main class="blog-post">
+            <section class="panel hero">
+                <div class="blog-meta">2025-05-05 | 6 min read | TYPESCRIPT</div>
+                <h2 class="panel-title">Switching from 'any' to 'unknown'</h2>
+                <div class="terminal" style="margin-top: 15px;">
+                    <div>$ cat table_of_contents.txt</div>
+                    <ul style="list-style: none; padding-left: 10px; margin-top: 5px;">
+                        <li>1. <a href="#intro" style="color: inherit;">Introduction</a></li>
+                        <li>2. <a href="#deep-dive" style="color: inherit;">The Deep Dive</a></li>
+                        <li>3. <a href="#code" style="color: inherit;">Code Implementation</a></li>
+                        <li>4. <a href="#lessons" style="color: inherit;">Lessons Learned</a></li>
+                    </ul>
                 </div>
-
-                <div class="buttons">
+            </section>
+            <article class="panel" style="margin-top: 25px;">
+                <div class="blog-content">
+                    <h2 id="intro">INTRODUCTION</h2>
+                    <p>I used to think 'any' was a harmless shortcut. Then a typo in a nested object property bypassed our type checks and caused a runtime crash for 500 users. That was the day I swore off 'any' forever.</p>
+                    <h2 id="deep-dive">THE DEEP DIVE</h2>
+                    <p>TypeScript's 'unknown' type is the safe alternative. It forces you to perform type checking before you can interact with the value. It's more work upfront, but it guarantees that your assumptions about external data are actually verified at runtime.</p>
+                    <div class="speech">'any' is just a debt that you eventually have to pay back with interest in production.</div>
+                    <h2 id="code">CODE IMPLEMENTATION</h2>
+                    <div class="code-box">function handleResponse(data: unknown) {<br>&nbsp;&nbsp;if (isUserResponse(data)) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return data.userName;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;throw new Error('Invalid data');<br>}</div>
+                    <h2 id="lessons">LESSONS LEARNED</h2>
+                    <p>Strict mode is your best friend. It caught three more hidden bugs during our refactor that would have eventually caused issues.</p>
+                </div>
+                <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
                     <a href="blog.html" class="btn">← BACK TO BLOG</a>
                 </div>
             </article>
         </main>
-
         <footer class="footer">
             EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
         </footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debugging a Race Condition in Node.js | Edwin Kimemia</title>
+    <title>Debugging a Race Condition | Edwin Kimemia</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,6 +21,8 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
                     <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
@@ -28,52 +30,37 @@
                 </ul>
             </nav>
         </header>
-
-        <main class="panel halftone">
-            <article class="blog-post">
-                <div class="blog-meta">PUBLISHED: MAY 15, 2025 • 12 MIN READ</div>
-                <h1 class="panel-title" style="font-size: 2.5rem;">Debugging a Race Condition in a Node.js WebSocket Server – A War Story</h1>
-
-                <div class="blog-content">
-                    <p>It started with a few reports of "missing messages" in our real-time chat application. Under normal load, everything was fine. But during peak hours, messages were seemingly vanishing into the void.</p>
-
-                    <div class="terminal" style="margin-bottom: 20px;">
-                        <div>[ERROR] WebSocket: Failed to broadcast to client_8291. Socket state: CLOSING</div>
-                        <div>[DEBUG] Event Loop Lag: 142ms</div>
-                    </div>
-
-                    <h2>The Symptoms</h2>
-                    <p>The logs showed that we were trying to send messages to clients that were in the process of disconnecting. However, the application state still thought they were active. It was a classic race condition between the `disconnect` event and the `broadcast` loop.</p>
-
-                    <h2>The False Leads</h2>
-                    <p>I initially thought it was a memory leak or a backpressure issue with the underlying TCP stream. We wasted hours tuning the `highWaterMark` and optimizing the JSON serialization logic, but the drops persisted.</p>
-
-                    <h2>The Actual Bug</h2>
-                    <p>The issue was that our `activeClients` map was being updated asynchronously. A broadcast could start, yield the event loop, and by the time it resumed, the client reference it held was stale but not yet removed from the map.</p>
-
-                    <h2>The Fix: Async Queue</h2>
-                    <p>We implemented a robust async queue to handle outgoing messages. Instead of iterating the map directly during a broadcast, we pushed messages to a worker that validated the socket state immediately before transmission.</p>
-
-                    <div class="code-box">
-// The Fix: Using a Queue to serialize broadcasts<br>
-const broadcastQueue = async.queue(async (task) => {<br>
-&nbsp;&nbsp;const { socket, message } = task;<br>
-&nbsp;&nbsp;if (socket.readyState === WebSocket.OPEN) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;await socket.send(message);<br>
-&nbsp;&nbsp;}<br>
-}, 100); // Concurrency limit
-                    </div>
-
-                    <h2>The Victory</h2>
-                    <p>After deploying the fix, our message delivery reliability went from 94% to 99.8%. The event loop lag dropped significantly because we were no longer blocking it with massive, un-throttled iteration loops.</p>
+        <main class="blog-post">
+            <section class="panel hero">
+                <div class="blog-meta">2025-05-20 | 12 min read | BACKEND / JS</div>
+                <h2 class="panel-title">Debugging a Race Condition</h2>
+                <div class="terminal" style="margin-top: 15px;">
+                    <div>$ cat table_of_contents.txt</div>
+                    <ul style="list-style: none; padding-left: 10px; margin-top: 5px;">
+                        <li>1. <a href="#intro" style="color: inherit;">Introduction</a></li>
+                        <li>2. <a href="#deep-dive" style="color: inherit;">The Deep Dive</a></li>
+                        <li>3. <a href="#code" style="color: inherit;">Code Implementation</a></li>
+                        <li>4. <a href="#lessons" style="color: inherit;">Lessons Learned</a></li>
+                    </ul>
                 </div>
-
-                <div class="buttons">
+            </section>
+            <article class="panel" style="margin-top: 25px;">
+                <div class="blog-content">
+                    <h2 id="intro">INTRODUCTION</h2>
+                    <p>We were seeing a 6% message drop on our WebSocket server during peak hours. No errors in the logs, just missing data. It was a classic race condition, and it was driving us crazy.</p>
+                    <h2 id="deep-dive">THE DEEP DIVE</h2>
+                    <p>The issue was multiple clients updating the same task simultaneously. Our database was overwriting state based on whichever request finished last, regardless of the sequence of the user actions. We needed a reliable way to queue and process these updates sequentially.</p>
+                    <div class="speech">In a distributed system, you can't assume order unless you enforce it.</div>
+                    <h2 id="code">CODE IMPLEMENTATION</h2>
+                    <div class="code-box">async function processMessage(msg) {<br>&nbsp;&nbsp;const lock = await redis.set(msg.id, 'locked', 'NX', 'EX', 5);<br>&nbsp;&nbsp;if (!lock) return reschedule(msg);<br>&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;await updateDB(msg);<br>&nbsp;&nbsp;} finally {<br>&nbsp;&nbsp;&nbsp;&nbsp;await redis.del(msg.id);<br>&nbsp;&nbsp;}<br>}</div>
+                    <h2 id="lessons">LESSONS LEARNED</h2>
+                    <p>Always use idempotency keys for critical state changes. It's the only way to sleep soundly at night when you're handling thousands of concurrent users.</p>
+                </div>
+                <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
                     <a href="blog.html" class="btn">← BACK TO BLOG</a>
                 </div>
             </article>
         </main>
-
         <footer class="footer">
             EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
         </footer>

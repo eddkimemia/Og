@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philosophy | Edwin Kimemia</title>
+    <title>sleep-promise.ts | Edwin Kimemia</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -30,34 +30,31 @@
                 </ul>
             </nav>
         </header>
-
-        <main class="blog-post">
-            <section class="panel hero">
-                <h2 class="panel-title">ENGINEERING PHILOSOPHY</h2>
-                <p>My core principles for building software that lasts and teams that thrive.</p>
+        <main>
+            <section class="panel hero halftone">
+                <div class="blog-meta">CATEGORY: UTILS | DIFFICULTY: BEGINNER</div>
+                <h2 class="panel-title">SNIPPET: sleep-promise.ts</h2>
+                <div class="terminal" style="margin-top: 15px;">
+                    <div>$ cat use_case.txt</div>
+                    <div style="margin-top: 5px;">await sleep(1000) for async flows.</div>
+                </div>
             </section>
-
-            <section class="panel" style="margin-top: 25px;">
-                <ol class="manifesto-list">
-                    <li>
-                        <strong>Signal Over Noise:</strong> Code should be self-documenting whenever possible. If it needs a comment, the logic might be too clever.
-                    </li>
-                    <li>
-                        <strong>Ship Early, Iterate Fast:</strong> A "good" solution in production beats a "perfect" one on your local machine every time.
-                    </li>
-                    <li>
-                        <strong>User Impact is the Only Metric:</strong> If a feature doesn't solve a real problem for a real user, it's just a hobby.
-                    </li>
-                    <li>
-                        <strong>Own Your Mistakes:</strong> A senior engineer isn't someone who never breaks production; it's someone who fixes it and ensures it never happens the same way again.
-                    </li>
-                    <li>
-                        <strong>Empathy in Engineering:</strong> Write code for the next engineer who will touch it. They might be you in six months.
-                    </li>
-                </ol>
-            </section>
+            <article class="panel" style="margin-top: 25px;">
+                <div class="blog-content">
+                    <h2>THE CODE</h2>
+                    <div class="code-box">const sleep = ms => new Promise(r => setTimeout(r, ms));</div>
+                    <h2>HOW IT WORKS</h2>
+                    <p>Simple Promise wrapper around <code>setTimeout</code>.</p>
+                    <h2>REAL-WORLD EXAMPLE</h2>
+                    <div class="code-box">await sleep(2000);</div>
+                    <h2>COMMON PITFALLS</h2>
+                    <p>None, though avoid long sleeps in production UI logic.</p>
+                </div>
+                <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
+                    <a href="vault.html" class="btn">← BACK TO VAULT</a>
+                </div>
+            </article>
         </main>
-
         <footer class="footer">
             EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
         </footer>
