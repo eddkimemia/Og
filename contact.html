@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">THE PROGRAMMER'S PANEL</h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="comic-grid">
+            <section class="panel hero">
+                <h2 class="panel-title">GET IN TOUCH</h2>
+                <p>Have a project in mind or want to discuss a potential collaboration? Fill out the form below or reach out via email.</p>
+
+                <form action="mailto:edwinkimemia05@gmail.com" method="POST" enctype="text/plain" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required placeholder="Tell me more about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">SEND MESSAGE →</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title">DETAILS</h2>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> <a href="mailto:edwinkimemia05@gmail.com" style="color: var(--blue);">edwinkimemia05@gmail.com</a></p>
+                    <p><strong>Location:</strong> Nairobi, Kenya — EAT (UTC+3)</p>
+                    <p><strong>Response Time:</strong> Typically responds within 24 hours.</p>
+                </div>
+
+                <div class="buttons" style="justify-content: flex-start; margin-top: 30px;">
+                    <a href="https://github.com/edwinkimemia" class="btn">GITHUB</a>
+                    <a href="https://linkedin.com/in/edwinkimemia" class="btn">LINKEDIN</a>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title">STATUS</h2>
+                <div class="terminal">
+                    <div><span class="prompt">edwin@portfolio:~$</span> finger edwin</div>
+                    <br>
+                    <div>Login: edwin</div>
+                    <div>Name: Edwin Kimemia</div>
+                    <div>Office: Nairobi, KE</div>
+                    <div>Plan: Building the future of SaaS in Africa.</div>
+                    <br>
+                    <div>[Available for new opportunities]</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
