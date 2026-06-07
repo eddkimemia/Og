@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Built This Comic Terminal Portfolio | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">THE KIMEMIA KRONICLE</h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="panel halftone">
+            <article class="blog-post">
+                <div class="blog-meta">PUBLISHED: JUNE 10, 2025 • 8 MIN READ</div>
+                <h1 class="panel-title" style="font-size: 2.5rem;">How I Built This Comic Terminal Portfolio (And Why You Should Break UI Rules)</h1>
+
+                <div class="blog-content">
+                    <p>In a world of generic, minimalist developer portfolios, I wanted something that screamed personality. I chose to blend the gritty, utilitarian vibe of a Linux terminal with the vibrant, tactile aesthetic of a Silver Age comic book.</p>
+
+                    <h2>Rejecting Generic Portfolios</h2>
+                    <p>Most portfolios today look like a Vercel template. They're clean, they're fast, but they're forgettable. By breaking UI rules—using thick borders, off-kilter rotations, and high-contrast halftone patterns—I created a space that forces engagement.</p>
+
+                    <h2>The Technical Challenges</h2>
+                    <p>The biggest challenge was implementing the halftone dot pattern without using heavy images. I used pure CSS radial gradients to achieve the look.</p>
+
+                    <div class="code-box">
+.panel.halftone::after {<br>
+&nbsp;&nbsp;content: "";<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;inset: 0;<br>
+&nbsp;&nbsp;background-image: radial-gradient(var(--black) 1px, transparent 1px);<br>
+&nbsp;&nbsp;background-size: 4px 4px;<br>
+&nbsp;&nbsp;opacity: 0.05;<br>
+}
+                    </div>
+
+                    <p>Keeping the layout accessible while using `transform: rotate()` on panels required careful consideration. I ensured that the rotation was subtle enough (0.5deg) not to interfere with readability while still providing that "hand-laid comic" feel.</p>
+
+                    <h2>Performance & Accessibility</h2>
+                    <p>Despite the "chaotic" visual language, the site is incredibly lightweight. No frameworks, no heavy libraries—just vanilla HTML, CSS, and JS. Every panel is semantic, and the contrast ratios meet WCAG AA standards by using a dark-on-cream palette instead of pure white.</p>
+
+                    <div class="speech">
+                        "The goal was to make it feel like an engineer who codes, but also an engineer who has a story to tell."
+                    </div>
+
+                    <h2>Lessons for Devs</h2>
+                    <p>Don't be afraid to build something weird. Technical competence is expected; personality is what gets you remembered.</p>
+                </div>
+
+                <div class="buttons">
+                    <a href="blog.html" class="btn">← BACK TO BLOG</a>
+                </div>
+            </article>
+        </main>
+
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

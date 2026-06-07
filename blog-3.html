@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Switched from any to Unknown | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">THE KIMEMIA KRONICLE</h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="panel halftone">
+            <article class="blog-post">
+                <div class="blog-meta">PUBLISHED: APRIL 12, 2025 • 6 MIN READ</div>
+                <h1 class="panel-title" style="font-size: 2.5rem;">Why I Switched from any to Unknown in TypeScript (And You Should Too)</h1>
+
+                <div class="blog-content">
+                    <p>We've all been there. You're fighting with a complex API response, and the compiler keeps yelling at you. You reach for the "easy" button: `any`. But `any` isn't a solution; it's a debt contract you'll eventually have to pay back with interest.</p>
+
+                    <h2>The Problem with `any`</h2>
+                    <p>The `any` type essentially tells TypeScript to turn off type checking for that variable. It's a black hole in your type system where bugs hide.</p>
+
+                    <div class="code-box">
+// BEFORE: The dangerous way<br>
+function processData(data: any) {<br>
+&nbsp;&nbsp;console.log(data.user.name); // Runtime error if user is missing!<br>
+}
+                    </div>
+
+                    <h2>The Type-Safe Refactor</h2>
+                    <p>The `unknown` type is the type-safe sibling of `any`. It says "this could be anything, so you must prove what it is before you use it." This forces you to write type guards, which handle edge cases at the boundaries of your application.</p>
+
+                    <div class="code-box">
+// AFTER: The safe way<br>
+interface User { name: string; }<br>
+<br>
+function isUser(obj: unknown): obj is User {<br>
+&nbsp;&nbsp;return typeof obj === 'object' && obj !== null && 'name' in obj;<br>
+}<br>
+<br>
+function processData(data: unknown) {<br>
+&nbsp;&nbsp;if (isUser(data)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(data.name); // Safe!<br>
+&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Invalid data structure");<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+
+                    <h2>Results</h2>
+                    <p>Switching to `unknown` for all external data (API calls, localStorage, user input) caught 3 potential production bugs in our very next sprint. It turns "undefined is not a function" into a compile-time or handled-runtime error.</p>
+                </div>
+
+                <div class="buttons">
+                    <a href="blog.html" class="btn">← BACK TO BLOG</a>
+                </div>
+            </article>
+        </main>
+
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

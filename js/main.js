@@ -27,4 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.remove('active');
         }
     });
+
+    // Terminal Command Log (Activity Feed)
+    const activityLog = document.getElementById('activity-log');
+    if (activityLog) {
+        const commands = [
+            { cmd: 'git push origin main --force-with-lease', time: '2025-06-07 14:32:17' },
+            { cmd: 'npm run test -- --coverage', time: '2025-06-07 09:15:42' },
+            { cmd: 'curl https://api.edwinkimemia.com/health', time: '2025-06-07 08:03:11' },
+            { cmd: 'code blog-post-3.md', time: '2025-06-06 22:47:03' },
+            { cmd: 'docker-compose up --build', time: '2025-06-06 16:20:55' },
+            { cmd: 'ssh production-server', time: '2025-06-06 14:10:22' },
+            { cmd: 'psql -d invoice_kenya -c "SELECT count(*) FROM users;"', time: '2025-06-06 11:45:01' }
+        ];
+
+        commands.forEach(entry => {
+            const row = document.createElement('div');
+            row.className = 'log-entry';
+            row.innerHTML = `<span class="log-timestamp">[${entry.time}]</span> <span class="prompt">edwin@web:~$</span> <span class="log-command">${entry.cmd}</span>`;
+            activityLog.appendChild(row);
+        });
+
+        // Auto-scroll to bottom
+        activityLog.scrollTop = activityLog.scrollHeight;
+    }
 });

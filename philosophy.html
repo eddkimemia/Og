@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">THE KIMEMIA KRONICLE</h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="comic-grid">
+            <section class="panel hero halftone">
+                <div class="action-word">MANIFESTO</div>
+                <h2 class="panel-title">MY 5 RULES FOR CODE</h2>
+                <p>I build software that is meant to be read, maintained, and evolved. Here is the philosophy that guides every line I write.</p>
+
+                <ol class="manifesto-list" style="margin-top: 30px;">
+                    <li>
+                        <strong>Readability over cleverness:</strong> The next engineer (including future me) should understand this in 30 seconds. One-liners are for vanity; clarity is for production.
+                    </li>
+                    <li>
+                        <strong>Type safety by default:</strong> TypeScript strict mode is non-negotiable. I use runtime validation (Zod) at all API boundaries to ensure the "outside world" doesn't break my app.
+                    </li>
+                    <li>
+                        <strong>Test behavior, not implementation:</strong> I prioritize integration tests that mimic user interactions over brittle unit tests that break every time I refactor a function name.
+                    </li>
+                    <li>
+                        <strong>Fail loudly in dev, gracefully in prod:</strong> Use meaningful error messages and structured logging. Never swallow an error silently.
+                    </li>
+                    <li>
+                        <strong>Optimize for change:</strong> Code will be read 10x more than written. I structure modules so that features can be added or removed without a house-of-cards collapse.
+                    </li>
+                </ol>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title">DEFAULT STACK</h2>
+                <ul class="skills-list">
+                    <li><strong>Frontend:</strong> React + TypeScript + Tailwind</li>
+                    <li><strong>Backend:</strong> Node.js + Express + PostgreSQL</li>
+                    <li><strong>Hosting:</strong> Vercel (FE), Railway/Render (BE)</li>
+                    <li><strong>Monitoring:</strong> Sentry + Logtail</li>
+                </ul>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title">LEARNING LOG</h2>
+                <div class="terminal">
+                    <div><span class="prompt">edwin@web:~$</span> cat learning.log</div>
+                    <br>
+                    <div>- Rust (WASM experiments)</div>
+                    <div>- Kubernetes (Home lab)</div>
+                    <div>- Event Sourcing patterns</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
