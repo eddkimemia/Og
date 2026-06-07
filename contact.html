@@ -21,6 +21,8 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
                     <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
@@ -30,58 +32,52 @@
         </header>
 
         <main class="comic-grid">
-            <section class="panel hero">
-                <h2 class="panel-title">GET IN TOUCH</h2>
-                <p>Have a project in mind or want to discuss a potential collaboration? Fill out the form below or reach out via email.</p>
+            <section class="panel hero halftone">
+                <h2 class="panel-title">$ ./contact --method=all</h2>
+                <div class="terminal">
+                    <div>Response SLA: 24 hours (weekdays) | 48 hours (weekends)</div>
+                    <div>Preferred: Email > LinkedIn > GitHub Issues</div>
+                </div>
+            </section>
 
+            <!-- Interactive Form -->
+            <section class="panel">
+                <h2 class="panel-title">$ ./send-message --interactive</h2>
                 <form action="mailto:edwinkimemia05@gmail.com" method="POST" enctype="text/plain" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    <div class="terminal" style="padding: 10px; background: #fafafa;">
+                        <div>To: edwinkimemia05@gmail.com</div>
+                        <div style="margin-top: 10px;">Subject: <input type="text" name="subject" placeholder="[Type here...]" style="border: none; background: transparent; font-family: inherit; width: 80%; outline: none;"></div>
+                        <div style="margin-top: 10px;">Message:</div>
+                        <textarea name="message" placeholder="[Type your message here...]" style="width: 100%; min-height: 100px; border: none; background: transparent; font-family: inherit; outline: none; resize: none;"></textarea>
+                        <div style="margin-top: 10px;">Send? (y/n): <button type="submit" style="background: var(--green); color: white; border: none; padding: 2px 10px; cursor: pointer; font-family: inherit; font-weight: bold;">y</button> / <button type="reset" style="background: var(--red); color: white; border: none; padding: 2px 10px; cursor: pointer; font-family: inherit; font-weight: bold;">n</button></div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject" required placeholder="What's this about?">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required placeholder="Tell me more about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="btn">SEND MESSAGE →</button>
                 </form>
             </section>
 
             <section class="panel">
-                <h2 class="panel-title">DETAILS</h2>
-                <div class="contact-info">
-                    <p><strong>Email:</strong> <a href="mailto:edwinkimemia05@gmail.com" style="color: var(--blue);">edwinkimemia05@gmail.com</a></p>
-                    <p><strong>Location:</strong> Nairobi, Kenya — EAT (UTC+3)</p>
-                    <p><strong>Response Time:</strong> Typically responds within 24 hours.</p>
-                </div>
-
-                <div class="buttons" style="justify-content: flex-start; margin-top: 30px;">
-                    <a href="https://github.com/edwinkimemia" class="btn">GITHUB</a>
-                    <a href="https://linkedin.com/in/edwinkimemia" class="btn">LINKEDIN</a>
+                <h2 class="panel-title">SOCIALS & CHANNELS</h2>
+                <div class="buttons" style="flex-direction: column; align-items: flex-start;">
+                    <a href="mailto:edwinkimemia05@gmail.com" class="btn" style="width: 100%;">EMAIL: edwinkimemia05@gmail.com</a>
+                    <a href="https://linkedin.com/in/edkimemia" class="btn" style="width: 100%;">LINKEDIN: @edkimemia</a>
+                    <a href="https://github.com/edkimemia" class="btn" style="width: 100%;">GITHUB: @edkimemia</a>
+                    <a href="https://twitter.com/edkimemia" class="btn" style="width: 100%;">X / TWITTER: @edkimemia</a>
                 </div>
             </section>
 
             <section class="panel">
-                <h2 class="panel-title">STATUS</h2>
-                <div class="terminal">
-                    <div><span class="prompt">edwin@web:~$</span> finger edwin</div>
+                <h2 class="panel-title">AVAILABILITY</h2>
+                <div class="terminal" style="font-size: 0.85rem;">
+                    <div>• Full-time roles: Actively looking</div>
+                    <div>• Freelance/contract: 15-20 hours/week</div>
+                    <div>• Coffee chats: Always open (30 min)</div>
                     <br>
-                    <div>Login: edwin</div>
-                    <div>Name: Edwin Kimemia</div>
-                    <div>Office: Nairobi, KE</div>
-                    <div>Plan: Building the future of SaaS in Africa.</div>
-                    <br>
-                    <div>[Available for new opportunities]</div>
+                    <div>Time zone: Nairobi, Kenya (EAT - UTC+3)</div>
                 </div>
             </section>
+
+            <div class="speech" style="grid-column: 1 / -1;">
+                "I reply to everything. If you haven't heard from me in 48 hours, I didn't get it. Ping me on LinkedIn as a backup." — Edwin
+            </div>
         </main>
 
         <footer class="footer">

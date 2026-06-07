@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How I Built This Comic Portfolio | Edwin Kimemia</title>
+    <title>My First Open Source Contribution | Edwin Kimemia</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -32,8 +32,8 @@
         </header>
         <main class="blog-post">
             <section class="panel hero">
-                <div class="blog-meta">2025-06-07 | 8 min read | CSS / FRONTEND</div>
-                <h2 class="panel-title">How I Built This Comic Portfolio</h2>
+                <div class="blog-meta">2025-04-05 | 7 min read | OPEN SOURCE</div>
+                <h2 class="panel-title">My First Open Source Contribution</h2>
                 <div class="terminal" style="margin-top: 15px;">
                     <div>$ cat table_of_contents.txt</div>
                     <ul style="list-style: none; padding-left: 10px; margin-top: 5px;">
@@ -47,14 +47,14 @@
             <article class="panel" style="margin-top: 25px;">
                 <div class="blog-content">
                     <h2 id="intro">INTRODUCTION</h2>
-                    <p>When I set out to build my personal site, I knew I wanted something that stood out from the sea of generic minimal portfolios. I decided to blend two of my favorite aesthetics: the gritty, tactile feel of a vintage comic book and the utilitarian precision of a terminal interface.</p>
+                    <p>For a long time, the idea of contributing to open source felt intimidating. I finally decided to bite the bullet when I found a bug in a library I was using daily.</p>
                     <h2 id="deep-dive">THE DEEP DIVE</h2>
-                    <p>The biggest challenge was creating a realistic halftone effect without using heavy images. I utilized CSS radial gradients to create a dot pattern that scales perfectly across devices. Combine that with a slightly off-white paper texture and thick, irregular borders, and the site was born.</p>
-                    <div class="speech">Don't be afraid to break UI rules if it helps tell your story better. Substance needs a style that demands attention.</div>
+                    <p>The process was eye-opening. Beyond fixing the bug, I had to ensure my code followed the project's strict linting rules and write comprehensive tests. The maintainer's feedback on my PR was the best code review I've ever received.</p>
+                    <div class="speech">Open source isn't just about writing code; it's about being part of a global conversation on quality.</div>
                     <h2 id="code">CODE IMPLEMENTATION</h2>
-                    <div class="code-box">.halftone {<br>&nbsp;&nbsp;background-image: radial-gradient(rgba(0, 0, 0, .1) 1.5px, transparent 1.5px);<br>&nbsp;&nbsp;background-size: 10px 10px;<br>}</div>
+                    <div class="code-box">git checkout -b fix/issue-42<br># ... code changes and tests<br>git rebase main<br>git push origin fix/issue-42</div>
                     <h2 id="lessons">LESSONS LEARNED</h2>
-                    <p>I learned that typography is 80% of design. Finding the right pairing between JetBrains Mono (coding) and Newsreader (printing) was the moment the project finally clicked.</p>
+                    <p>Don't wait to be an expert to contribute. Find a project you use, look for an "easy-first-issue" label, and just start.</p>
                 </div>
                 <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
                     <a href="blog.html" class="btn">← BACK TO BLOG</a>

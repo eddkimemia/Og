@@ -21,6 +21,8 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
                     <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
                     <li><a href="experience.html" class="nav-link">Experience</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
@@ -29,139 +31,70 @@
             </nav>
         </header>
 
-        <main class="panel halftone">
-            <h2 class="panel-title">MISSION LOG: PROJECT CASE STUDIES</h2>
-
-            <!-- Case Study 1 -->
-            <article class="case-study">
-                <h3>PROJECT: INVOICEKENYA (ISSUE #01)</h3>
-                <p><strong>The Mission:</strong> Kenyan freelancers struggled with manual invoice tracking and high transaction fees. I built a tool to automate billing and integrate M-Pesa payments directly into the workflow.</p>
-
-                <p><strong>The Tech Stack:</strong> React, Node.js, Express, PostgreSQL, Daraja API, PDFKit, Tailwind CSS.</p>
-
-                <div class="code-box">
-// Daraja STK Push Integration<br>
-async function initiateSTKPush(phone, amount) {<br>
-&nbsp;&nbsp;const response = await axios.post(DARAJA_URL, {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;BusinessShortCode: "174379",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Amount: amount,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;PhoneNumber: phone,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;CallBackURL: "https://api.invoicekenya.com/mpesa-callback"<br>
-&nbsp;&nbsp;});<br>
-&nbsp;&nbsp;return response.data;<br>
-}
+        <main>
+            <section class="panel hero halftone">
+                <h2 class="panel-title">$ projects --list --sort=impact</h2>
+                <div class="terminal">
+                    <div>Filter by: [ <span style="text-decoration: underline;">All</span> ] [ Fintech ] [ Productivity ] [ SaaS ]</div>
                 </div>
+            </section>
 
-                <p><strong>The Obstacles:</strong> Handling Daraja API callbacks reliably during peak network congestion was a major hurdle. I solved this by implementing a retry mechanism and a background worker to verify transaction status if the callback failed.</p>
+            <div class="comic-grid" style="margin-top: 25px;">
+                <!-- Project 1: InvoiceKenya -->
+                <article class="panel">
+                    <div class="blog-meta">ISSUE #001 | SAAS / FINTECH</div>
+                    <h2 class="panel-title">INVOICEKENYA</h2>
+                    <p><strong>Impact:</strong> 99.8% payment reliability, 90% reduction in manual reconciliation.</p>
+                    <p><strong>Stack:</strong> React, Node.js, Express, PostgreSQL, Daraja API, PDFKit, Tailwind CSS.</p>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="project-1.html" class="btn">VIEW CASE STUDY →</a>
+                    </div>
+                </article>
 
-                <p><strong>The Results:</strong> Reduced manual reconciliation by 90% for active users and successfully processed over 5,000 invoices in the first 3 months.</p>
-            </article>
+                <!-- Project 2: ShiftBoard -->
+                <article class="panel">
+                    <div class="blog-meta">ISSUE #002 | PRODUCTIVITY</div>
+                    <h2 class="panel-title">SHIFTBOARD</h2>
+                    <p><strong>Impact:</strong> Cut scheduling time by 5 hrs/week. Improved attendance by 25%.</p>
+                    <p><strong>Stack:</strong> React, Node.js, PostgreSQL, Africa's Talking API, date-fns, Tailwind CSS.</p>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="project-2.html" class="btn">VIEW CASE STUDY →</a>
+                    </div>
+                </article>
 
-            <hr style="margin: 30px 0; border: 2px solid var(--black);">
+                <!-- Project 3: FormCraft -->
+                <article class="panel">
+                    <div class="blog-meta">ISSUE #003 | SAAS / NO-CODE</div>
+                    <h2 class="panel-title">FORMCRAFT</h2>
+                    <p><strong>Impact:</strong> Currently used by 15+ local startups for lead generation.</p>
+                    <p><strong>Stack:</strong> React, Node.js, Express, MongoDB, AWS S3, Vanilla JS (embed runtime).</p>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="project-3.html" class="btn">VIEW CASE STUDY →</a>
+                    </div>
+                </article>
 
-            <!-- Case Study 2 -->
-            <article class="case-study">
-                <h3>PROJECT: SHIFTBOARD (ISSUE #02)</h3>
-                <p><strong>The Mission:</strong> Small hospitality businesses in Nairobi were using paper rotas, leading to communication gaps. I created a real-time scheduling tool with automated mobile notifications.</p>
+                <!-- Project 4: StatusPulse -->
+                <article class="panel">
+                    <div class="blog-meta">ISSUE #004 | SAAS / DEVOPS</div>
+                    <h2 class="panel-title">STATUSPULSE</h2>
+                    <p><strong>Impact:</strong> Monitoring 200+ endpoints with 99.9% reliability.</p>
+                    <p><strong>Stack:</strong> Node.js, PostgreSQL, BullMQ, Nodemailer, Twilio, React, Chart.js.</p>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="project-4.html" class="btn">VIEW CASE STUDY →</a>
+                    </div>
+                </article>
 
-                <p><strong>The Tech Stack:</strong> React, Node.js, PostgreSQL, Africa's Talking API, date-fns, Tailwind CSS.</p>
-
-                <div class="code-box">
-// Automated WhatsApp notification via Africa's Talking<br>
-const notifyStaff = async (staffMember, shift) => {<br>
-&nbsp;&nbsp;const message = `Habari ${staffMember.name}, you have a new shift: ${shift.time}`;<br>
-&nbsp;&nbsp;await AT.sms.send({<br>
-&nbsp;&nbsp;&nbsp;&nbsp;to: staffMember.phone,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;message: message<br>
-&nbsp;&nbsp;});<br>
-};
-                </div>
-
-                <p><strong>The Obstacles:</strong> Drag-and-drop calendar performance on mobile devices was poor. I refactored the calendar component to use a lightweight CSS Grid-based layout instead of a heavy library, improving interaction speed significantly.</p>
-
-                <p><strong>The Results:</strong> Improved staff attendance by 25% for pilot restaurants and cut manager scheduling time by 5 hours per week.</p>
-            </article>
-
-            <hr style="margin: 30px 0; border: 2px solid var(--black);">
-
-            <!-- Case Study 3 -->
-            <article class="case-study">
-                <h3>PROJECT: FORMCRAFT (ISSUE #03)</h3>
-                <p><strong>The Mission:</strong> Local businesses needed a low-cost alternative to Typeform that could be easily embedded in their existing sites without technical expertise.</p>
-
-                <p><strong>The Tech Stack:</strong> React, Node.js, Express, MongoDB, AWS S3, Vanilla JS (embed runtime).</p>
-
-                <div class="code-box">
-// Lightweight Embed Script<br>
-(function() {<br>
-&nbsp;&nbsp;const script = document.currentScript;<br>
-&nbsp;&nbsp;const formId = script.getAttribute('data-form-id');<br>
-&nbsp;&nbsp;const container = document.createElement('div');<br>
-&nbsp;&nbsp;container.id = `formcraft-${formId}`;<br>
-&nbsp;&nbsp;script.parentNode.insertBefore(container, script);<br>
-&nbsp;&nbsp;loadForm(formId, container);<br>
-})();
-                </div>
-
-                <p><strong>The Obstacles:</strong> Ensuring the embed script didn't conflict with host site CSS was difficult. I utilized Shadow DOM to isolate the form styles completely from the surrounding page.</p>
-
-                <p><strong>The Results:</strong> Shipped 2 weeks ahead of schedule. Currently used by 15+ local startups for lead generation.</p>
-            </article>
-
-            <hr style="margin: 30px 0; border: 2px solid var(--black);">
-
-            <!-- Case Study 4 -->
-            <article class="case-study">
-                <h3>PROJECT: STATUSPULSE (ISSUE #04)</h3>
-                <p><strong>The Mission:</strong> I wanted to provide a reliable uptime monitoring tool for local developers who needed downtime alerts via both email and SMS.</p>
-
-                <p><strong>The Tech Stack:</strong> Node.js, PostgreSQL, BullMQ (job queue), Nodemailer, Twilio, React, Chart.js.</p>
-
-                <div class="code-box">
-// Background job for pinging endpoints<br>
-const pingWorker = new Worker('pings', async job => {<br>
-&nbsp;&nbsp;const { url, id } = job.data;<br>
-&nbsp;&nbsp;const start = Date.now();<br>
-&nbsp;&nbsp;try {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;await axios.get(url, { timeout: 5000 });<br>
-&nbsp;&nbsp;&nbsp;&nbsp;await saveLog(id, Date.now() - start, 'up');<br>
-&nbsp;&nbsp;} catch (e) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;await saveLog(id, 0, 'down');<br>
-&nbsp;&nbsp;&nbsp;&nbsp;await sendAlert(id);<br>
-&nbsp;&nbsp;}<br>
-});
-                </div>
-
-                <p><strong>The Obstacles:</strong> Managing a large number of concurrent pings without overwhelming the server. I used BullMQ with Redis to queue pings and process them with a pool of workers.</p>
-
-                <p><strong>The Results:</strong> Monitoring 200+ endpoints with 99.9% reliability. Incident history view helped users identify recurring network patterns.</p>
-            </article>
-
-            <hr style="margin: 30px 0; border: 2px solid var(--black);">
-
-            <!-- Case Study 5 -->
-            <article class="case-study">
-                <h3>PROJECT: LEARNDESK (ISSUE #05)</h3>
-                <p><strong>The Mission:</strong> Independent educators in Kenya needed a lightweight LMS without high monthly fees. I built LearnDesk to allow them to sell courses with M-Pesa integration.</p>
-
-                <p><strong>The Tech Stack:</strong> React, Node.js, Express, PostgreSQL, Cloudinary, M-Pesa, Stripe, JWT auth.</p>
-
-                <div class="code-box">
-// Secure video delivery and progress tracking<br>
-router.get('/lessons/:id', authenticateToken, async (req, res) => {<br>
-&nbsp;&nbsp;const lesson = await db.Lesson.findOne({ where: { id: req.params.id } });<br>
-&nbsp;&nbsp;const enrollment = await db.Enrollment.findOne({<br>
-&nbsp;&nbsp;&nbsp;&nbsp;where: { userId: req.user.id, courseId: lesson.courseId }<br>
-&nbsp;&nbsp;});<br>
-&nbsp;&nbsp;if (!enrollment) return res.sendStatus(403);<br>
-&nbsp;&nbsp;res.json({ videoUrl: lesson.cloudinaryUrl });<br>
-});
-                </div>
-
-                <p><strong>The Obstacles:</strong> Securely handling large video uploads from areas with unstable internet. I implemented Cloudinary's signed uploads and chunked upload strategy to ensure reliability.</p>
-
-                <p><strong>The Results:</strong> 5 educators signed up in the first month, hosting 12 courses. Educators reported higher revenue retention compared to international platforms.</p>
-            </article>
+                <!-- Project 5: LearnDesk -->
+                <article class="panel">
+                    <div class="blog-meta">ISSUE #005 | EDTECH / FINTECH</div>
+                    <h2 class="panel-title">LEARNDESK</h2>
+                    <p><strong>Impact:</strong> Educators keep 90% revenue. 12 courses hosted in month 1.</p>
+                    <p><strong>Stack:</strong> React, Node.js, Express, PostgreSQL, Cloudinary, M-Pesa, Stripe.</p>
+                    <div class="buttons" style="justify-content: flex-start; margin-top: 15px;">
+                        <a href="project-5.html" class="btn">VIEW CASE STUDY →</a>
+                    </div>
+                </article>
+            </div>
         </main>
 
         <footer class="footer">

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STATUSPULSE | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">edwin@web:~$ </h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="panel hero halftone">
+                <div class="blog-meta">ISSUE #004 | SAAS / DEVOPS</div>
+                <h2 class="panel-title">PROJECT: STATUSPULSE</h2>
+                <div class="terminal" style="margin-top: 15px;">
+                    <div>$ cat tech_loadout.txt</div>
+                    <div style="font-family: monospace; white-space: pre; margin-top: 5px;">
+┌────────────┬────────────────────────────────────┐
+│ Frontend   │ React, Chart.js                     │
+│ Backend    │ Node.js                             │
+│ Database   │ PostgreSQL                          │
+│ Infra      │ BullMQ, Twilio, Nodemailer          │
+└────────────┴────────────────────────────────────┘</div>
+                </div>
+            </section>
+            <article class="panel" style="margin-top: 25px;">
+                <div class="blog-content">
+                    <h2>THE MISSION</h2>
+                    <p>Developers needed a reliable way to monitor service uptime and notify stakeholders during outages without paying for expensive enterprise tools.</p>
+                    <h2>THE APPROACH</h2>
+                    <p>I implemented a high-concurrency monitoring engine using BullMQ. The system pings user endpoints at configurable intervals and auto-generates a public status page.</p>
+                    <h2>THE CODE</h2>
+                    <div class="code-box">const pingWorker = new Worker('pings', async job => {<br>&nbsp;&nbsp;const { url, id } = job.data;<br>&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;const start = Date.now();<br>&nbsp;&nbsp;&nbsp;&nbsp;await axios.get(url, { timeout: 5000 });<br>&nbsp;&nbsp;&nbsp;&nbsp;await saveLog(id, Date.now() - start, 'up');<br>&nbsp;&nbsp;} catch (e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;await sendAlert(id, 'down');<br>&nbsp;&nbsp;}<br>});</div>
+                    <h2>THE OBSTACLES</h2>
+                    <p>Managing thousands of concurrent pings without overwhelming the network. I implemented rate-limiting and distributed the load across multiple worker nodes.</p>
+                    <h2>THE RESULTS</h2>
+                    <p>Currently monitoring 200+ endpoints with 99.9% reliability and sending downtime alerts via SMS/Email within 15 seconds of failure detection.</p>
+                </div>
+                <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
+                    <a href="projects.html" class="btn">← BACK TO PROJECTS</a>
+                </div>
+            </article>
+        </main>
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>useLocalStorage.tsx | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">edwin@web:~$ </h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="panel hero halftone">
+                <div class="blog-meta">CATEGORY: REACT | DIFFICULTY: INTERMEDIATE</div>
+                <h2 class="panel-title">SNIPPET: useLocalStorage.tsx</h2>
+                <div class="terminal" style="margin-top: 15px;">
+                    <div>$ cat use_case.txt</div>
+                    <div style="margin-top: 5px;">Persistent state with SSR safety and robust error handling.</div>
+                </div>
+            </section>
+            <article class="panel" style="margin-top: 25px;">
+                <div class="blog-content">
+                    <h2>THE CODE</h2>
+                    <div class="code-box">function useLocalStorage&lt;T&gt;(key: string, initialValue: T) {<br>&nbsp;&nbsp;const [storedValue, setStoredValue] = useState(() => {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (typeof window === "undefined") return initialValue;<br>&nbsp;&nbsp;&nbsp;&nbsp;try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const item = window.localStorage.getItem(key);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return item ? JSON.parse(item) : initialValue;<br>&nbsp;&nbsp;&nbsp;&nbsp;} catch (e) { return initialValue; }<br>&nbsp;&nbsp;});<br>&nbsp;&nbsp;return [storedValue, setStoredValue];<br>}</div>
+                    <h2>HOW IT WORKS</h2>
+                    <p>Checks for <code>window</code> to avoid SSR errors and wraps JSON parsing in a try-catch for safety.</p>
+                    <h2>REAL-WORLD EXAMPLE</h2>
+                    <div class="code-box">const [theme, setTheme] = useLocalStorage("theme", "dark");</div>
+                    <h2>COMMON PITFALLS</h2>
+                    <p>Not reactive across different browser tabs/windows by default.</p>
+                </div>
+                <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
+                    <a href="vault.html" class="btn">← BACK TO VAULT</a>
+                </div>
+            </article>
+        </main>
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

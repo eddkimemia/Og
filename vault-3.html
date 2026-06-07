@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>retry-with-backoff.ts | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">edwin@web:~$ </h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="panel hero halftone">
+                <div class="blog-meta">CATEGORY: UTILS | DIFFICULTY: INTERMEDIATE</div>
+                <h2 class="panel-title">SNIPPET: retry-with-backoff.ts</h2>
+                <div class="terminal" style="margin-top: 15px;">
+                    <div>$ cat use_case.txt</div>
+                    <div style="margin-top: 5px;">API calls that retry on failure with exponential delay.</div>
+                </div>
+            </section>
+            <article class="panel" style="margin-top: 25px;">
+                <div class="blog-content">
+                    <h2>THE CODE</h2>
+                    <div class="code-box">async&nbsp;function&nbsp;retry<T>(<br>&nbsp;&nbsp;fn:&nbsp;()&nbsp;=>&nbsp;Promise<T>,<br>&nbsp;&nbsp;retries&nbsp;=&nbsp;3,<br>&nbsp;&nbsp;delay&nbsp;=&nbsp;1000<br>):&nbsp;Promise<T>&nbsp;{<br>&nbsp;&nbsp;try&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;await&nbsp;fn();<br>&nbsp;&nbsp;}&nbsp;catch&nbsp;(error)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(retries&nbsp;===&nbsp;0)&nbsp;throw&nbsp;error;<br>&nbsp;&nbsp;&nbsp;&nbsp;await&nbsp;new&nbsp;Promise(r&nbsp;=>&nbsp;setTimeout(r,&nbsp;delay));<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;retry(fn,&nbsp;retries&nbsp;-&nbsp;1,&nbsp;delay&nbsp;*&nbsp;2);<br>&nbsp;&nbsp;}<br>}</div>
+                    <h2>HOW IT WORKS</h2>
+                    <p>Loops through retries and uses <code>setTimeout</code> wrapped in a Promise.</p>
+                    <h2>REAL-WORLD EXAMPLE</h2>
+                    <div class="code-box">await retry(() => fetch("/api"));</div>
+                    <h2>COMMON PITFALLS</h2>
+                    <p>Be careful not to retry on 404 errors which will never succeed.</p>
+                </div>
+                <div class="buttons" style="margin-top: 40px; border-top: 3px solid var(--black); padding-top: 20px;">
+                    <a href="vault.html" class="btn">← BACK TO VAULT</a>
+                </div>
+            </article>
+        </main>
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

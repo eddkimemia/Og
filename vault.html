@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Vault | Edwin Kimemia</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="issue-title">edwin@web:~$ </h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="vault.html" class="nav-link">Vault</a></li>
+                    <li><a href="now.html" class="nav-link">Now</a></li>
+                    <li><a href="philosophy.html" class="nav-link">Philosophy</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="panel hero halftone">
+                <h2 class="panel-title">$ vault --inventory</h2>
+                <div class="terminal" style="font-size: 0.9rem;">
+                    <div>Snippets stored: 12</div>
+                    <div>Categories: Utils (4), React (3), TypeScript (3), Performance (2)</div>
+                    <div>Most forked: debounce-with-cancel (47 saves)</div>
+                </div>
+            </section>
+
+            <section class="panel" style="margin-top: 25px;">
+                <div class="terminal">
+                    <div>$ vault --search [ <span style="color: #666;">Type here...</span> ] --category [ All ▼ ]</div>
+                </div>
+            </section>
+
+            <div class="vault-grid" style="margin-top: 25px;">
+                <!-- Snippet 1 -->
+                <div class="vault-card halftone">
+                    <div class="vault-card-header">debounce-with-cancel.ts</div>
+                    <div class="vault-card-body">
+                        <div class="blog-meta">UTILS | INTERMEDIATE</div>
+                        <p>Search input that doesn't fire on every keystroke, plus cancel on unmount.</p>
+                        <div class="code-box" style="font-size: 0.7rem; height: 80px; overflow: hidden; opacity: 0.7;">
+function debounce&lt;T&gt;(fn: T, delay: number) {<br>
+&nbsp;&nbsp;let timeoutId = null;<br>
+&nbsp;&nbsp;return (...args) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (timeoutId) clearTimeout(timeoutId);
+                        </div>
+                        <div class="buttons" style="margin-top: 15px;">
+                            <a href="vault-1.html" class="btn" style="width: 100%; text-align: center;">VIEW FULL →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snippet 2 -->
+                <div class="vault-card halftone">
+                    <div class="vault-card-header">useLocalStorage.tsx</div>
+                    <div class="vault-card-body">
+                        <div class="blog-meta">REACT | INTERMEDIATE</div>
+                        <p>Persistent state with SSR safety and robust error handling.</p>
+                        <div class="code-box" style="font-size: 0.7rem; height: 80px; overflow: hidden; opacity: 0.7;">
+function useLocalStorage&lt;T&gt;(key: string) {<br>
+&nbsp;&nbsp;const [stored, setStored] = useState(() => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try { const item = window.localStorage.getItem(key);
+                        </div>
+                        <div class="buttons" style="margin-top: 15px;">
+                            <a href="vault-2.html" class="btn" style="width: 100%; text-align: center;">VIEW FULL →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snippet 3 -->
+                <div class="vault-card halftone">
+                    <div class="vault-card-header">retry-with-backoff.ts</div>
+                    <div class="vault-card-body">
+                        <div class="blog-meta">UTILS | INTERMEDIATE</div>
+                        <p>API calls that retry on failure with exponential delay.</p>
+                        <div class="code-box" style="font-size: 0.7rem; height: 80px; overflow: hidden; opacity: 0.7;">
+async function retry(fn, retries = 3) {<br>
+&nbsp;&nbsp;for (let i = 0; i < retries; i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try { return await fn(); } catch (e) {
+                        </div>
+                        <div class="buttons" style="margin-top: 15px;">
+                            <a href="vault-3.html" class="btn" style="width: 100%; text-align: center;">VIEW FULL →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snippet 4 -->
+                <div class="vault-card halftone">
+                    <div class="vault-card-header">deep-clone.ts</div>
+                    <div class="vault-card-body">
+                        <div class="blog-meta">UTILS | INTERMEDIATE</div>
+                        <p>Recursive cloning without JSON.stringify pitfalls.</p>
+                        <div class="code-box" style="font-size: 0.7rem; height: 80px; overflow: hidden; opacity: 0.7;">
+function deepClone(obj) {<br>
+&nbsp;&nbsp;if (obj === null || typeof obj !== 'object') return obj;<br>
+&nbsp;&nbsp;const copy = Array.isArray(obj) ? [] : {};
+                        </div>
+                        <div class="buttons" style="margin-top: 15px;">
+                            <a href="vault-4.html" class="btn" style="width: 100%; text-align: center;">VIEW FULL →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
