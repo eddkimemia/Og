@@ -1,698 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Edwin Kimemia | Software Engineer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-
---paper:#FEF7E6;
---panel:#FFF8E7;
---black:#1A1A1A;
-
---green:#2B8C4E;
---red:#D6402A;
---blue:#2A5F8A;
---yellow:#E6A017;
---purple:#7B4F9C;
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-
-background:var(--paper);
-color:#1E1E1E;
-
-font-family:"Merriweather",serif;
-
-background-image:
-radial-gradient(rgba(0,0,0,.08) 1px, transparent 1px);
-
-background-size:14px 14px;
-
-line-height:1.6;
-}
-
-.container{
-max-width:1400px;
-margin:auto;
-padding:30px;
-}
-
-.issue-title{
-
-font-family:"Luckiest Guy",cursive;
-font-size:clamp(2.5rem,7vw,6rem);
-
-letter-spacing:3px;
-text-align:center;
-
-margin-bottom:20px;
-
-color:var(--red);
-
-text-shadow:
-3px 3px 0 #fff,
-5px 5px 0 var(--black);
-
-}
-
-.issue-subtitle{
-
-text-align:center;
-font-family:"JetBrains Mono", monospace;
-font-size:1rem;
-margin-bottom:35px;
-
-}
-
-.comic-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
-
-gap:18px;
-
-}
-
-.panel{
-
-background:var(--panel);
-
-border:4px solid var(--black);
-
-padding:20px;
-
-box-shadow:
-6px 6px 0 rgba(0,0,0,.12);
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.panel:nth-child(odd){
-transform:rotate(-0.5deg);
-}
-
-.panel:nth-child(even){
-transform:rotate(0.5deg);
-}
-
-.panel::before{
-
-content:"";
-
-position:absolute;
-inset:0;
-
-background-image:
-radial-gradient(
-rgba(0,0,0,.06) 1px,
-transparent 1px
-);
-
-background-size:8px 8px;
-
-pointer-events:none;
-}
-
-.hero{
-
-grid-column:1/-1;
-
-min-height:420px;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-
-}
-
-.panel-title{
-
-font-family:"Luckiest Guy";
-font-size:2rem;
-margin-bottom:10px;
-
-color:var(--blue);
-
-letter-spacing:1px;
-}
-
-.terminal{
-
-font-family:"JetBrains Mono", monospace;
-
-background:#f5f1de;
-
-border:3px solid var(--black);
-
-padding:15px;
-
-margin-top:20px;
-}
-
-.prompt{
-color:var(--green);
-font-weight:bold;
-}
-
-.cursor{
-
-display:inline-block;
-
-width:10px;
-height:20px;
-
-background:var(--green);
-
-animation:blink 1s infinite;
-vertical-align:middle;
-}
-
-@keyframes blink{
-50%{opacity:0;}
-}
-
-.caption{
-
-margin-top:15px;
-
-background:#fff;
-
-border:3px solid var(--black);
-
-padding:12px;
-
-font-size:.95rem;
-}
-
-.skills-list{
-
-font-family:"JetBrains Mono", monospace;
-
-list-style:none;
-}
-
-.skills-list li{
-
-padding:8px 0;
-
-border-bottom:2px dashed rgba(0,0,0,.15);
-}
-
-.skills-list li:last-child{
-border:none;
-}
-
-.project-tag{
-
-display:inline-block;
-
-padding:5px 10px;
-
-background:var(--yellow);
-
-border:2px solid var(--black);
-
-font-size:.8rem;
-font-weight:bold;
-
-margin-top:10px;
-}
-
-.code-box{
-
-font-family:"JetBrains Mono", monospace;
-
-background:#faf6e5;
-
-padding:15px;
-
-margin-top:12px;
-
-border-left:5px solid var(--green);
-
-overflow:auto;
-}
-
-.timeline{
-
-display:flex;
-flex-direction:column;
-gap:12px;
-}
-
-.timeline-item{
-
-padding:12px;
-
-border:3px solid var(--black);
-
-background:white;
-}
-
-.timeline-item h4{
-font-family:"JetBrains Mono";
-color:var(--blue);
-}
-
-.speech{
-
-background:white;
-
-border:4px solid var(--black);
-
-padding:18px;
-
-position:relative;
-
-margin-top:15px;
-}
-
-.speech:after{
-
-content:"";
-
-position:absolute;
-
-left:40px;
-bottom:-20px;
-
-width:30px;
-height:30px;
-
-background:white;
-
-border-right:4px solid var(--black);
-border-bottom:4px solid var(--black);
-
-transform:rotate(45deg);
-}
-
-.cta-panel{
-
-grid-column:1/-1;
-
-background:var(--red);
-
-color:white;
-
-text-align:center;
-}
-
-.cta-panel .panel-title{
-color:white;
-}
-
-.buttons{
-
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-
-gap:15px;
-
-margin-top:25px;
-}
-
-.btn{
-
-text-decoration:none;
-
-font-family:"JetBrains Mono";
-
-padding:14px 20px;
-
-border:3px solid var(--black);
-
-background:var(--yellow);
-
-color:black;
-
-font-weight:bold;
-
-transition:.2s;
-}
-
-.btn:hover{
-
-transform:translate(-3px,-3px);
-
-box-shadow:5px 5px 0 var(--black);
-}
-
-.footer{
-
-margin-top:30px;
-text-align:center;
-
-font-family:"JetBrains Mono";
-
-font-size:.9rem;
-}
-
-.action-word{
-
-font-family:"Luckiest Guy";
-
-font-size:3rem;
-
-color:var(--yellow);
-
-text-shadow:
-3px 3px 0 var(--black);
-
-margin-bottom:15px;
-}
-
-@media(max-width:768px){
-
-.container{
-padding:15px;
-}
-
-.issue-title{
-font-size:3rem;
-}
-
-.panel{
-transform:none !important;
-}
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edwin Kimemia | Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div class="container">
-
-<h1 class="issue-title">
-THE PROGRAMMER'S PANEL
-</h1>
-
-<p class="issue-subtitle">
-Issue #003 • Edwin Kimemia • Software Engineer • print("hello world")
-</p>
-
-<div class="comic-grid">
-
-<!-- HERO -->
-
-<section class="panel hero">
-
-<h2 class="panel-title">
-$ WHOAMI
-</h2>
-
-<div class="terminal">
-
-<div>
-<span class="prompt">
-edwin@portfolio:~$
-</span>
-
-whoami
-</div>
-
-<br>
-
-<div>
-Software Engineer
-</div>
-
-<div>
-3 Years Experience
-</div>
-
-<div>
-Frontend Developer
-</div>
-
-<div>
-Open Source Contributor
-</div>
-
-<div>
-Problem Solver
-</div>
-
-<div>
-Fast Learner
-</div>
-
-<br>
-
-<div>
-Mission:
-Build fast, maintainable software people enjoy using.
-<span class="cursor"></span>
-</div>
-
-</div>
-
-<div class="caption">
-Recruiters need engineers who can ship features,
-understand users, and collaborate with teams.
-That's exactly where I do my best work.
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section class="panel">
-
-<h2 class="panel-title">
-SKILL ARSENAL
-</h2>
-
-<ul class="skills-list">
-
-<li>✔ HTML5</li>
-<li>✔ CSS3</li>
-<li>✔ JavaScript ES6+</li>
-<li>✔ React</li>
-<li>✔ Tailwind</li>
-
-<li>✔ Node.js</li>
-<li>✔ Express</li>
-<li>✔ Python</li>
-
-<li>✔ PostgreSQL</li>
-<li>✔ MongoDB</li>
-
-<li>✔ Git & GitHub</li>
-
-</ul>
-
-</section>
-
-<!-- PROJECT -->
-
-<section class="panel">
-
-<h2 class="panel-title">
-PROJECT: SME DASHBOARD
-</h2>
-
-<p>
-Built a responsive business dashboard helping small companies track sales, inventory and customer activity.
-</p>
-
-<div class="code-box">
-01 fetch("/api/metrics")<br>
-02 .then(res => res.json())<br>
-03 .then(renderDashboard)
-</div>
-
-<div class="project-tag">
-API Integration
-</div>
-
-</section>
-
-<!-- PROJECT -->
-
-<section class="panel">
-
-<h2 class="panel-title">
-PROJECT: JOB BOARD
-</h2>
-
-<p>
-Full-stack platform with authentication, role management and recruiter workflows.
-</p>
-
-<div class="code-box">
-POST /jobs<br>
-GET /candidates<br>
-PUT /applications
-</div>
-
-<div class="project-tag">
-Node.js + PostgreSQL
-</div>
-
-</section>
-
-<!-- PROJECT -->
-
-<section class="panel">
-
-<h2 class="panel-title">
-PROJECT: E-COMMERCE STORE
-</h2>
-
-<p>
-Performance-focused storefront with optimized loading, responsive layouts and payment integration.
-</p>
-
-<div class="code-box">
-Lighthouse Score: 95+<br>
-Mobile First Design
-</div>
-
-<div class="project-tag">
-Performance Optimization
-</div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section class="panel">
-
-<h2 class="panel-title">
-ORIGIN STORY
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h4>Software Engineer</h4>
-<p>Building and maintaining production-ready applications.</p>
-</div>
-
-<div class="timeline-item">
-<h4>Frontend Developer</h4>
-<p>Creating accessible, responsive user interfaces.</p>
-</div>
-
-<div class="timeline-item">
-<h4>Freelance Developer</h4>
-<p>Helping businesses launch and improve web products.</p>
-</div>
-
-<div class="timeline-item">
-<h4>Open Source Contributor</h4>
-<p>Learning through collaboration and community projects.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- CODE FACTS -->
-
-<section class="panel">
-
-<h2 class="panel-title">
-DEV FACT BOX
-</h2>
-
-<div class="terminal">
-
-$ strengths --list
-
-<br><br>
-
-> Clean maintainable code
-
-<br>
-
-> Code reviews
-
-<br>
-
-> REST API integration
-
-<br>
-
-> Responsive interfaces
-
-<br>
-
-> Debugging legacy systems
-
-<br>
-
-> Team collaboration
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section class="panel cta-panel">
-
-<div class="action-word">
-KAPOW!
-</div>
-
-<h2 class="panel-title">
-READY TO ADD A DEVELOPER TO YOUR TEAM?
-</h2>
-
-<div class="speech">
-Looking for a software engineer who can contribute immediately,
-learn quickly, and collaborate effectively?
-Let's talk.
-</div>
-
-<div class="buttons">
-
-<a href="#projects" class="btn">
-VIEW PROJECTS →
-</a>
-
-<a href="https://github.com/" class="btn">
-SEE MY CODE →
-</a>
-
-<a href="mailto:edwin@example.com" class="btn">
-CONTACT →
-</a>
-
-</div>
-
-</section>
-
-</div>
-
-<div class="footer">
-EXIT CODE: 0 • Portfolio Loaded Successfully
-</div>
-
-</div>
-
+    <div class="container">
+        <header>
+            <h1 class="issue-title">THE PROGRAMMER'S PANEL</h1>
+            <div class="issue-subtitle">
+                <span>Issue #004</span>
+                <span>Edwin Kimemia • Software Engineer</span>
+                <span id="eat-clock">00:00:00 EAT</span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="experience.html" class="nav-link">Experience</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="comic-grid">
+            <!-- HERO -->
+            <section class="panel hero">
+                <h2 class="panel-title">$ WHOAMI</h2>
+                <div class="terminal">
+                    <div><span class="prompt">edwin@portfolio:~$</span> whoami</div>
+                    <br>
+                    <div>Full-Stack Software Engineer</div>
+                    <div>3 Years Experience</div>
+                    <div>Based in Nairobi, Kenya</div>
+                    <div>Specializing in African Market Tech</div>
+                    <br>
+                    <div>Mission: Building robust SaaS solutions that solve real local challenges. <span class="cursor"></span></div>
+                </div>
+                <div class="caption">
+                    I build production-ready web applications with a focus on M-Pesa integrations, mobile-first design, and low-bandwidth user experiences.
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="panel">
+                <h2 class="panel-title">SKILL ARSENAL</h2>
+                <ul class="skills-list">
+                    <li>✔ React & Tailwind CSS</li>
+                    <li>✔ Node.js & Express</li>
+                    <li>✔ PostgreSQL & MongoDB</li>
+                    <li>✔ Daraja API (M-Pesa)</li>
+                    <li>✔ Africa's Talking API</li>
+                    <li>✔ AWS & Cloudinary</li>
+                    <li>✔ Git & CI/CD</li>
+                </ul>
+            </section>
+
+            <!-- PROJECTS SUMMARY -->
+            <section class="panel">
+                <h2 class="panel-title">LATEST: INVOICEKENYA</h2>
+                <p>SaaS invoicing for Kenyan freelancers. M-Pesa payment links, Daraja STK Push callbacks, and PDF generation.</p>
+                <div class="code-box">
+                    // M-Pesa STK Push Callback<br>
+                    router.post('/callback', (req, res) => {<br>
+                    &nbsp;&nbsp;const { ResultCode } = req.body.Body.stkCallback;<br>
+                    &nbsp;&nbsp;if (ResultCode === 0) updatePaymentStatus();<br>
+                    });
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">Daraja API</span>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title">LATEST: SHIFTBOARD</h2>
+                <p>Staff scheduling for hospitality. Drag-and-drop rotas with WhatsApp notifications via Africa's Talking API.</p>
+                <div class="code-box">
+                    await AT.sms.send({<br>
+                    &nbsp;&nbsp;to: staff.phone,<br>
+                    &nbsp;&nbsp;message: `Your shift: ${shift.date}`<br>
+                    });
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">PostgreSQL</span>
+                    <span class="project-tag">WhatsApp API</span>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title">LATEST: FORMCRAFT</h2>
+                <p>No-code form builder to replace Typeform. Supports conditional logic, file uploads, and webhooks.</p>
+                <div class="code-box">
+                    &lt;script src="formcraft.io/embed.js"&gt;<br>
+                    &lt;/script&gt;<br>
+                    &lt;div data-form-id="xyz-123"&gt;&lt;/div&gt;
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">MongoDB</span>
+                    <span class="project-tag">AWS S3</span>
+                    <span class="project-tag">Vanilla JS</span>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="panel cta-panel">
+                <div class="action-word">KAPOW!</div>
+                <h2 class="panel-title">BUILDING SOMETHING BIG?</h2>
+                <div class="speech">
+                    Need a developer who understands the local tech ecosystem and can ship high-quality code fast? Let's connect.
+                </div>
+                <div class="buttons">
+                    <a href="projects.html" class="btn">VIEW ALL PROJECTS →</a>
+                    <a href="contact.html" class="btn">GET IN TOUCH →</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            EXIT CODE: 0 • Portfolio Loaded Successfully • Nairobi, Kenya
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
